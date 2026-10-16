@@ -1,0 +1,9 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment><!--
+    Font preloads. Replace these with the critical web fonts of your instance.
+    `extensionName` is the UpperCamelCase form of your extension key
+    (oap_instance_example -> OapInstanceExample). Rename it when you rename the extension.
+--></f:comment>
+<link rel="preload" href="{f:uri.resource(path: 'Fonts/example-regular.woff2', extensionName: 'OapInstanceExample')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{f:uri.resource(path: 'Fonts/example-bold.woff2', extensionName: 'OapInstanceExample')}" as="font" type="font/woff2" crossorigin>
+</html>

@@ -1,0 +1,16 @@
+<html
+    xmlns:f="http://typo3.org/ns/fluid/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+<f:comment><!--
+    Example partial override.
+    open-oap renders an "IncludeJs" partial to load its frontend JavaScript.
+    Because this file exists here and this extension is registered as
+    partialRootPaths.1, it REPLACES EXT:open_oap/Resources/Private/Partials/IncludeJs.html.
+    Use it to ship your own bundled/instance scripts.js instead of the stock one.
+    Delete this file to fall back to the upstream partial.
+--></f:comment>
+
+<f:asset.script identifier="open_oap_scripts" src="EXT:oap_instance_example/Resources/Public/JavaScript/scripts.js" defer="1"/>
+
+</html>

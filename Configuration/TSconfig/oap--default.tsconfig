@@ -1,0 +1,55 @@
+# Backend record-selector restrictions for the OAP models.
+#
+# PAGE_TSCONFIG_ID pins a relation field's record browser to a single sysfolder
+# (page UID); PAGE_TSCONFIG_IDLIST pins it to a comma-separated list. This keeps
+# editors from picking records out of the wrong folder.
+#
+# >>> Every numeric ID below is an EXAMPLE. Replace each one with the UID of the
+#     sysfolder in YOUR instance that holds the corresponding records. <<<
+#
+# Suggested folder layout (see README → "Sysfolder structure"):
+#   Form Items, Form Groups, Form Pages, Calls, Item Options, Item Validators,
+#   Modificators, Proposals, Answers, Comments, FE-Users.
+
+TCEFORM {
+    tx_openoap_domain_model_call {
+        proposal_pid.PAGE_TSCONFIG_ID = 0       # sysfolder: Proposals
+        successor_call.PAGE_TSCONFIG_ID = 0     # sysfolder: Calls
+        predecessor_call.PAGE_TSCONFIG_ID = 0   # sysfolder: Calls
+        form_pages.PAGE_TSCONFIG_ID = 0         # sysfolder: Form Pages
+        items.PAGE_TSCONFIG_ID = 0              # sysfolder: Form Items
+        items.PAGE_TSCONFIG_STR = 5
+    }
+    tx_openoap_domain_model_formpage {
+        item_groups.PAGE_TSCONFIG_ID = 0        # sysfolder: Form Groups
+        modificators.PAGE_TSCONFIG_ID = 0       # sysfolder: Modificators
+    }
+    tx_openoap_domain_model_formgroup {
+        items.PAGE_TSCONFIG_ID = 0              # sysfolder: Form Items
+        group_title.PAGE_TSCONFIG_ID = 0        # sysfolder: Form Groups
+        item_groups.PAGE_TSCONFIG_ID = 0        # sysfolder: Form Groups
+        modificators.PAGE_TSCONFIG_ID = 0       # sysfolder: Modificators
+    }
+    tx_openoap_domain_model_formitem {
+        options.PAGE_TSCONFIG_ID = 0            # sysfolder: Item Options
+        options.PAGE_TSCONFIG_IDLIST = 0,0      # sysfolders: shared + instance Item Options
+        validators.PAGE_TSCONFIG_ID = 0         # sysfolder: Item Validators
+        validators.PAGE_TSCONFIG_IDLIST = 0,0   # sysfolders: shared + instance Item Validators
+        modificators.PAGE_TSCONFIG_ID = 0       # sysfolder: Modificators
+        modificators.PAGE_TSCONFIG_IDLIST = 0   # sysfolder: Modificators
+    }
+    tx_openoap_domain_model_formmodificator {
+        items.PAGE_TSCONFIG_ID = 0              # sysfolder: Form Items
+    }
+    tx_openoap_domain_model_proposal {
+        answers.PAGE_TSCONFIG_ID = 0            # sysfolder: Answers
+        comments.PAGE_TSCONFIG_ID = 0           # sysfolder: Comments
+        applicant.PAGE_TSCONFIG_ID = 0          # sysfolder: FE-Users
+    }
+    tx_openoap_domain_model_answer {
+        comments.PAGE_TSCONFIG_ID = 0           # sysfolder: Comments
+    }
+    fe_users {
+        country.PAGE_TSCONFIG_ID = 0            # sysfolder: main data storage
+    }
+}

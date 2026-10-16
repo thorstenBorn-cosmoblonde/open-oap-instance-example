@@ -1,0 +1,14 @@
+# =============================================================================
+# OAP Instance: Example — femanager constants
+# =============================================================================
+# open-oap builds its applicant management on femanager. Point it at your
+# FE-user sysfolder and set the sender identity used for account mails.
+
+plugin.tx_femanager {
+    settings {
+        adminName = OAP Application Platform
+        adminEmail = oap@example.org
+    }
+    # Sysfolder that stores the FE-users (applicants).
+    persistence.storagePid = 0
+}

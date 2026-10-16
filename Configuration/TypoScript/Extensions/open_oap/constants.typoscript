@@ -1,0 +1,97 @@
+# =============================================================================
+# OAP Instance: Example — open_oap constants
+# =============================================================================
+# All numeric IDs below are PLACEHOLDERS (0). Replace each with the page UID /
+# sysfolder UID / FE-group UID of YOUR instance. Non-ID settings (limits,
+# formats, separators) carry sensible defaults you can keep or tune.
+
+# -----------------------------------------------------------------------------
+# Fluid partial overrides
+# -----------------------------------------------------------------------------
+# Point every OAP plugin at THIS extension's Partials/ folder. Upstream setup
+# reads this as `partialRootPaths.1` (higher priority than `.0` = open_oap), so
+# a partial that exists here wins, while every partial you do NOT provide falls
+# back transparently to EXT:open_oap/Resources/Private/Partials/.
+# The folder therefore does not need to be complete — ship only what you change.
+plugin.tx_openoap_dashboard.view.partialRootPath = EXT:oap_instance_example/Resources/Private/Partials/
+plugin.tx_openoap_proposals.view.partialRootPath = EXT:oap_instance_example/Resources/Private/Partials/
+plugin.tx_openoap_applicant.view.partialRootPath = EXT:oap_instance_example/Resources/Private/Partials/
+plugin.tx_openoap_applicantform.view.partialRootPath = EXT:oap_instance_example/Resources/Private/Partials/
+plugin.tx_openoap_form.view.partialRootPath = EXT:oap_instance_example/Resources/Private/Partials/
+plugin.tx_openoap_notifications.view.partialRootPath = EXT:oap_instance_example/Resources/Private/Partials/
+
+# -----------------------------------------------------------------------------
+# Dashboard plugin — the central place for storage, page IDs and settings
+# -----------------------------------------------------------------------------
+plugin.tx_openoap_dashboard {
+    persistence {
+        # Sysfolder that stores proposals and FE-users.
+        storagePid = 0
+    }
+    settings {
+        # --- Frontend page UIDs (the pages that hold each OAP plugin) ---
+        dashboardPageId = 0
+        formPageId = 0
+        proposalNewPageId = 0
+        proposalEditPageId = 0
+        proposalsPageId = 0
+        notificationsPageId = 0
+        masterdataEditPageId = 0
+
+        # --- Sysfolder UIDs (record pools) ---
+        callPoolId = 0
+        proposalsPoolId = 0
+        itemsPoolId = 0
+        answersPoolId = 0
+        commentsPoolId = 0
+        pidFormPages = 0
+        pidFormGroups = 0
+        pidFormItems = 0
+        pidItemOptions = 0
+        pidItemValidator = 0
+        pidFormModificator = 0
+
+        # UID of the item-option record list that holds the country list.
+        countriesItemOptionId = 0
+
+        # --- FE user groups (create on your FE-user sysfolder) ---
+        generalFeGroupsId = 0
+        testerFeGroupsId = 0
+
+        # --- File uploads: "<storageUid>:/<path>" of a FAL storage ---
+        uploadFolder = 1:/
+
+        # --- Dashboard limits ---
+        proposalsActiveLimit = 5
+        proposalsArchivedLimit = 5
+
+        # --- Field defaults / formatting ---
+        metaInfoSeparator = |
+        defaultMaxCharTextarea = 2000
+        defaultMaxCharTextfield = 200
+        signatureFormat = %04d
+        defaultSourcesModel = applicant.companyEmail, applicant.firstName, applicant.lastName, applicant.address, applicant.country, applicant.telephone, applicant.fax, applicant.email, applicant.zip, applicant.city, applicant.www, applicant.company, applicant.salutation
+
+        # --- Export / ZIP naming ---
+        wordExportTemplateFile = word-template-oap.docx
+        zipFilePrefix = documents--
+        zipFileDateFormat = Ymd-Hi
+        zipStructureApplicantFormat = %1$s--%2$05d
+        zipStructureProppsalFormat = %1$s--%2$05d
+        zipStructureProppsalFormatTitleLength = 30
+
+        # --- Editing behaviour ---
+        # Minutes of inactivity before the "please save" reminder toast appears.
+        reminderToSaveMinutes = 5
+        # Minutes a proposal stays locked for other users while being edited.
+        lockedByUserMaxTime = 15
+    }
+}
+
+# -----------------------------------------------------------------------------
+# Remaining plugins / backend modules — set their storage sysfolders
+# -----------------------------------------------------------------------------
+plugin.tx_openoap_form.persistence.storagePid = 0
+plugin.tx_openoap_notifications.persistence.storagePid = 0
+module.tx_openoap_backendforms.persistence.storagePid = 0
+module.tx_openoap_backendproposals.persistence.storagePid = 0

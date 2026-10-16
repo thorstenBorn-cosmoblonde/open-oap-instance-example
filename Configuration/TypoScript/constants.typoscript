@@ -1,0 +1,8 @@
+# =============================================================================
+# OAP Instance: Example — TypoScript constants entry point
+# =============================================================================
+# This file is the include hub. Keep instance values grouped per upstream
+# extension under Extensions/<ext_key>/ so they stay easy to diff and port.
+
+@import 'EXT:oap_instance_example/Configuration/TypoScript/Extensions/open_oap/constants.typoscript'
+@import 'EXT:oap_instance_example/Configuration/TypoScript/Extensions/femanager/constants.typoscript'

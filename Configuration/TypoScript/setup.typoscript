@@ -1,0 +1,41 @@
+# =============================================================================
+# OAP Instance: Example — TypoScript setup
+# =============================================================================
+# Branding / page-head wiring for the instance. Everything here is optional and
+# self-contained (no theme dependency). Drop the blocks you do not need.
+#
+# NOTE: If your instance sits on top of a site package / theme that already
+# defines `page.headerData.*` as FLUIDTEMPLATE objects, override just the `.file`
+# instead of redeclaring the object type as shown below.
+
+# -----------------------------------------------------------------------------
+# Font preloads (optional)
+# -----------------------------------------------------------------------------
+# Put your web fonts under Resources/Public/Fonts/ and preload the critical ones.
+page.headerData.10 = FLUIDTEMPLATE
+page.headerData.10.file = EXT:oap_instance_example/Resources/Private/Templates/headerIncludes.html
+
+# -----------------------------------------------------------------------------
+# Instance CSS (optional) — TYPO3 v13 Asset API via a small Fluid template
+# -----------------------------------------------------------------------------
+# The referenced CSS files are BUILD OUTPUT — see README → "Frontend assets".
+page.headerData.14 = FLUIDTEMPLATE
+page.headerData.14.file = EXT:oap_instance_example/Resources/Private/Templates/CssIncludes.html
+
+# -----------------------------------------------------------------------------
+# Favicon set (optional)
+# -----------------------------------------------------------------------------
+# Generate an icon set (e.g. with a favicon generator), drop it into
+# Resources/Public/Favicon/ and adjust the tags below.
+page.headerData.600 {
+    value (
+        <link rel="shortcut icon" href="{path: EXT:oap_instance_example/Resources/Public/Favicon/favicon.ico}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{path: EXT:oap_instance_example/Resources/Public/Favicon/apple-touch-icon.png}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{path: EXT:oap_instance_example/Resources/Public/Favicon/favicon-32x32.png}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{path: EXT:oap_instance_example/Resources/Public/Favicon/favicon-16x16.png}">
+        <link rel="manifest" href="{path: EXT:oap_instance_example/Resources/Public/Favicon/site.webmanifest}">
+        <meta name="application-name" content="OAP Application Platform">
+        <meta name="theme-color" content="#ffffff">
+    )
+    insertData = 1
+}

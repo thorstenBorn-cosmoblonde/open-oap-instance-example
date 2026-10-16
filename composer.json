@@ -1,0 +1,23 @@
+{
+    "name": "openoap/oap-instance-example",
+    "description": "Blueprint instance extension for the Open Application Platform (open-oap). Copy, rename and adapt it to configure your own OAP installation.",
+    "license": "GPL-2.0-or-later",
+    "type": "typo3-cms-extension",
+    "keywords": ["TYPO3", "open-oap", "oap", "instance", "blueprint", "skeleton"],
+    "homepage": "https://github.com/openoap/oap-instance-example",
+    "authors": [
+        {
+            "name": "OpenOAP community",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^13.4",
+        "openoap/open-oap": "^3.0"
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "oap_instance_example"
+        }
+    }
+}
